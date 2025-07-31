@@ -14,6 +14,9 @@ Route::get('/main', function () {
 
 Route::get('/controller', [HomeController::class, 'index'])->name('posts.index');
 
-Route::get('/post', [PostController::class, 'index']);
+Route::get('/post', [PostController::class, 'index'])->name('.index');
 
-Route::post('/create', [CreateController::class, 'index']);
+
+// create new user
+Route::get('/users/create', [CreateController::class, 'create'])->name('create.user'); //show create form
+Route::post('/users', [CreateController::class, 'index'])->name('index.user'); // store new user

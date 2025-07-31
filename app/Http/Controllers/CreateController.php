@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class CreateController extends Controller
 {
@@ -12,7 +13,7 @@ class CreateController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:3', // Ensure password confirmation
         ]);
 
         // Create the user
@@ -24,5 +25,11 @@ class CreateController extends Controller
 
         // Redirect or return a response
         return redirect()->route('posts.index')->with('success', 'User created successfully!');
+    }
+
+    public function create()
+    {
+        // Return the view for creating a new user
+        return view('users.create');
     }
 }

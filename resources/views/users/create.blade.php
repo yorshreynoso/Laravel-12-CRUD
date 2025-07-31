@@ -7,9 +7,10 @@
     <title>Creat user</title>
 </head>
 <body>
-    <form action="/create" method="POST">
+    <form action="/users" method="POST">
         @csrf
         @method('POST')
+
         <input type="text" name="name" placeholder="Nombre">
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Contraseña">

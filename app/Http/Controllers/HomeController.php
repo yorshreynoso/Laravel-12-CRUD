@@ -9,7 +9,7 @@ use App\Models\User; // Import the User model if needed
 
 class HomeController extends Controller
 {
-    public function index(): View
+      public function index(): View
     {
         $user = User::find(1); // Example of fetching a user, adjust as needed
 
